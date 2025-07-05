@@ -40,5 +40,6 @@
     "files.associations": {
         ".fantomasignore": "ignore",
         "stdlib.h": "c"
-    }
+    },
+    "FSharp.suggestGitignore": false
 }

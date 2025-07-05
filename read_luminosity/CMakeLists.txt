@@ -35,14 +35,17 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(read_luminosity read_luminosity.c )
+add_executable(read_luminosity 
+    read_luminosity.c
+    src/luminosity_sensor.c
+)
 
 pico_set_program_name(read_luminosity "read_luminosity")
 pico_set_program_version(read_luminosity "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(read_luminosity 1)
-pico_enable_stdio_usb(read_luminosity 0)
+pico_enable_stdio_uart(read_luminosity 0)
+pico_enable_stdio_usb(read_luminosity 1)
 
 # Add the standard library to the build
 target_link_libraries(read_luminosity
@@ -51,6 +54,7 @@ target_link_libraries(read_luminosity
 # Add the standard include files to the build
 target_include_directories(read_luminosity PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 # Add any user requested libraries
